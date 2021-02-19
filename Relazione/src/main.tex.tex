@@ -1,0 +1,49 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{todonotes}
+\usepackage{floatpag}
+\usepackage[a4paper,bindingoffset=0.2in,
+            left=0.8in,right=0.8in,top=1.4in,bottom=1.4in,%
+            footskip=.48in]{geometry}
+
+
+
+\title{Relazione progetto Machine Learning \\
+    \large Appello Febbraio 2021}
+
+\author{Gabriele Maria Bucosse 869940 \\ Ruggero Panzeri 874975\\ Davide Rendina 830730}
+\date{19, February 2021}
+
+\begin{document}
+
+\newcommand{\imagespace}{\vspace{0.4cm}}
+
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\input{section_intro}
+
+\input{section_analysis}
+
+\newpage
+\input{section_esperiments}
+
+\newpage
+\section{Conclusioni}
+    In questa relazione è stato presentato il lavoro svolto per riguardante l'addestramento di sei diversi modelli di \textit{machine learning}, e la successiva predizione. La fase iniziale ha visto l'esplorazione del dataset, attraverso diversi grafici e l'applicazione della \textit{PCA}. Successivamente sono stati condotti gli esperimenti, attraverso addestramento e predizione utilizzando i vari modelli generati. In seguito, sono stati analizzati i risultati ottenuti al fine di calcolare sia tre diverse metriche (\textit{precision}, \textit{recall}, \textit{f-measure}) che le curve ROC per i vari modelli. Infine sono stati analizzate le metriche e i tempi di esecuzione ed effettuati i confronti tra i vari modelli, per indicare quali secondo noi fossero i modelli migliori. Dal confronto è emerso che il modello migliore è risultato \textit{naive bayes}, sia per i suoi valori ottenuti sia per il suo tempo di esecuzione minimo. Gli altri modelli invece risultati come "più veloci", alberi di decisione e SVM lineare, non hanno invece dato risultati molto buoni (soprattutto il primo). Per quanto riguarda SVM lineare, i suoi valori non sono in linea con quelle ottenute dagli altri modelli ma sicuramente è un ottimo \textit{trade-off} tra prestazioni e tempo. Un altro modello che non si è rivelato come molto adeguato per il problema analizzato è SVM polinomiale, non per i risultati ottenuti ma a causa dell'alta complessità computazionale, che a parità di prestazioni non permette quindi di preferirlo ad altri modelli analizzati. Infine rete neurale e SVM radiale si sono rivelati come un buon \textit{trade-off} tra prestazioni e tempi, e li rendono sicuramente adatti a questo tipo di problema.
+    
+
+
+
+
+
+% P. Cortez, A. Cerdeira, F. Almeida, T. Matos and J. Reis. Modeling wine preferences by data mining from physicochemical properties. In Decision Support Systems, Elsevier, 47(4):547-553, 2009.
+    
+\end{document}

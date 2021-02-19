@@ -1,0 +1,32 @@
+\section{Introduzione}
+% Obiettivo elaborato
+    L'obiettivo di questo elaborato è la presentazione del progetto svolto di \textit{machine learning}, relativo alla classificazione di differenti varietà di vino. Nella relazione sono incluse le fasi di esplorazione, generazione dei modelli, esperimenti e calcolo delle performance. \\
+% Descrizione del dataset e del dominio
+    Il dataset scelto per lo svolgimento del progetto è \textit{Red Wine Quality} [Cortez et al., 2009], disponibile sulla piattaforma \textit{\href{https://archive.ics.uci.edu/ml/datasets/wine+quality}{UCI Machine Learning Repository}}. Il dataset è relativo alle varianti del vino portoghese \textit{Vinho Verde} e include 11 covariate di input, che presentano valori basati su alcune rilevazioni fisico-chimiche, e 1 di output, il cui valore è ottenuto stabilito combinando i dati di sensoristica e almeno 3 valutazioni fatte da esperti vinicoli. Le singole \textit{feature} sono approfondite nella successiva tabella (\ref{tab:features}).
+    
+    Per lo svolgimento del progetto, sono state svolte diverse attività. La prima fase ha riguardato l' esplorazione del \textit{dataset} attraverso alcuni grafici, analisi di covariate e informazioni ottenute dalla \textit{PCA}. Successivamente, sono stati addestrati e testati 6 differenti modelli per effettuare la classificazione dei vini. In base ai risultati ottenuti sono state calcolate diverse metriche e, analizzando i valori ottenuti, è stato infine possibile effettuare un confronto riguardante le performance dei vari modelli.
+    
+% Descrizione delle singole feature
+        \begin{table}[h!]
+        \begin{tabularx}{\textwidth}{|l|X|}
+            \hline
+             \textbf{Feature} & \textbf{Descrizione} \\ \hline
+             Fixed acidity & La maggior parte degli acidi del vino, fissi o non volatili (che non evaporano facilmente) \\ \hline
+             Volatile acidity & La quantità di acido acetico nel vino, che a livelli troppo alti può portare a un sapore sgradevole di aceto \\ \hline
+             Citric acid & Presente in piccole quantità, l'acido citrico può aggiungere "freschezza" e sapore ai vini \\ \hline
+             Residual sugar & La quantità di zucchero rimanente dopo lo stop della fermentazione, è raro trovare vini con meno di 1 grammo/litro e i vini con più di 45 grammi/litro sono considerati dolci \\ \hline 
+             Chlorides & La quantità di sale nel vino\\ \hline
+             Free sulfur dioxide & La forma libera di SO2 esiste in equilibrio tra SO2 molecolare (come gas disciolto) e ione bisolfito; previene la crescita microbica e l'ossidazione del vino \\ \hline
+             Total sulfur dioxide & Quantità di forme libere e vincolate di S02; a basse concentrazioni, SO2 è per lo più non rilevabile nel vino, ma a concentrazioni superiori a 50 ppm, SO2 diventa evidente all'odore e al gusto del vino\\ \hline
+             Density & La densità dell'acqua è influenzata dalla percentuale di alcol e dalla quantità di zucchero\\ \hline
+             pH & Descrive quanto è acido o basico un vino su una scala da 0 (molto acido) a 14 (molto basico); la maggior parte dei vini è compresa tra 3-4 sulla scala del pH \\ \hline
+             Sulphates & Additivo per vino che può contribuire ai livelli di anidride solforosa (S02), che agisce come un antimicrobico e antiossidante \\ \hline
+             Alcohol & Percentuale di alcool contenuta nel vino\\ \hline
+             \textbf{Quality} & Rappresenta la \textbf{variabile target} del dataset e indica la qualità del vino, basata sui dati delle feature presentate in precedenza. Il punteggio è rappresentato da un valore nel range 1-10. \\ 
+             \hline
+        \end{tabularx}
+        \caption{Descrizione delle feature presenti nel dataset}
+        \label{tab:features}
+        \end{table}
+        
+        \clearpage

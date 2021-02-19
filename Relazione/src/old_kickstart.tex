@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{RelazioneProgettoML}
+\author{d.rendina2 }
+\date{February 2021}
+
+\begin{document}
+
+\maketitle
+
+\section{Esplorazione del dataset e PCA}
+    
+    \subsection{Esplorazione del dataset}
+         
+    % Il dataset utilizzato è <link>, che caratterizza ecc.. scelto perché ecc..
+         
+    % Come intendiamo utilizzarlo: nel senso, che tipo di predizione vogliamo fare?
+    
+    Vogliamo caratterizzare le istanze in base alle loro feature per poi classificarle in 2 classi, in base alle feature.
+    \\
+    % Descrizione dataset: quali feature presenta
+         
+    Al fine di effettuare le predizioni, è sono state effettuate alcune modifiche:
+    \begin{itemize}
+        
+        \item Sono state rimosse le feature \textit{ID} e \textit{name}, in quanto relative al singolo progetto e non permettono quindi di effettuare una classificazione accurata
+        
+        \item Convertito il valore del campo \textit{goal} dalla valuta indicata nella feature \textit{currency} a USD 
+        
+        \item Rimosso il campo \textit{currency}, poiché è stato convertito tutto in USD
+        
+        \item Rimossi i campi \textit{deadline} e \textit{launched} e sostituiti con un'unica feature \textit{duration\_in\_days}, che indica appunto la durata totale della campagna di crowdfunding (calcolata come differenza tra deadline e launched). + teniamo anno/mese ? Direi che non serve. Questa aggiunta è stata fatta poiché le date di inizio e fine sono irrilevanti ai fini della predizione, ma è più significativo conoscenere la durata di una campagna per uniformare questi due campi
+        item
+        
+        \item \textit{pleged} lo toglierei, poiché non avendo informazioni sui giorni che mancano alla fine della campagna, questo campo risulterebbe inutile. Inoltre l'obiettivo della nostra classificazione è stabilire se una campagna potrà avere successo o meno, ma questa feature risulterebbe inutile per questo obiettivo (basterebbe controllare se pleged > goal e ho fatto). L'unica utilità sarebbe appunto per sottoporre all'algoritmo istanze dicendo: ok mi mancano tot giorni e ho raccolto x, avrò successo? Ma come già spiegato questo sarebbe impossibile, poichè mancano diverse informazioni per questo (in quanti giorni è stata raggiunta, perchè è stato cancellato e nel caso quanti soldi aveva raccolto, ecc..) \textbf{NB: non è testo definitivo ovviamente, questo è proprio buttato lì per esporre la mia idea}
+        
+        \item \textit{state} La variabile rimane così com'è, ma sono stati effettuate alcune scelte basate sul suo valore:
+            \begin{itemize}
+            
+                \item \textit{live} e \textit{undefined}: rimossi (per stesso motivo di pleged - forse non molto chiaro, e perchè se è undefined non ci serve a nulla)
+                
+                \item \textit{successful} e \textit{failed}: considerati
+                
+                \item \textit{suspended} e \textit{canceled}? Si potrebbero tenere e considerarli come progetti che comunque sono falliti (anche se non avendo la causa del fallimento, non sappiamo effettivamente cosa togliamo) oppure toglieri (ne abbiamo già molti di progetti falliti e non, inoltre il dataset risulterebbe più bilanciato)
+                
+            \end{itemize}
+        
+        \item \textit{backers} Si riferisce sempre al numero di backers ma lo scarterei per gli stessi motivi di \textit{pleged}.
+        
+        \item \textit{country} invece ritengo sia utile, al massimo verrà scartato dalla PCA 
+        
+        \item \textit{usd\_pleged} rimosso per stesso motivo di pleged, + utlime 3 colonne senza nome rimosse
+        
+    \end{itemize}
+    
+    \subsubsection{Feature utilizzate}
+    
+        Per la classificazione (che prima passa dalla PCA), saranno quindi usati:
+        \begin{itemize}
+            \item category
+            \item main\_category
+            \item duration\_in\_days
+            \item goal
+            \item country
+        \end{itemize}
+        
+        La nostra variabile target sarà invece \textit{state}.
+    
+\end{document}
